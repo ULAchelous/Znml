@@ -1,0 +1,15 @@
+{
+    // CMake Tools uses CMakePresets.json (present in this project).
+    // In preset mode the extension ignores cmake.configureSettings/generator/buildDirectory
+    // and instead reads the toolchain + ABI from the selected preset.
+    "cmake.configureOnOpen": true,
+
+    // ---- C/C++ extension: let CMake Tools drive IntelliSense ----
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "C_Cpp.default.compileCommands": "${workspaceFolder}/build/compile_commands.json",
+
+    "files.associations": {
+        "*.h": "cpp",
+        "*.hpp": "cpp"
+    }
+}

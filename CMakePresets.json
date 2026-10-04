@@ -1,0 +1,64 @@
+{
+    "version": 3,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 22,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "android-base",
+            "hidden": true,
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build",
+            "cacheVariables": {
+                "CMAKE_TOOLCHAIN_FILE": "/Users/zyhfunny/Library/Android/sdk/ndk/30.0.16248370/build/cmake/android.toolchain.cmake",
+                "ANDROID_PLATFORM": "android-24",
+                "ANDROID_STL": "c++_shared",
+                "ANDROID_ARM_NEON": "ON",
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+            }
+        },
+        {
+            "name": "android-arm64",
+            "displayName": "Android arm64-v8a",
+            "inherits": "android-base",
+            "cacheVariables": {
+                "ANDROID_ABI": "arm64-v8a"
+            }
+        },
+        {
+            "name": "android-armv7",
+            "displayName": "Android armeabi-v7a",
+            "inherits": "android-base",
+            "binaryDir": "${sourceDir}/build-armv7",
+            "cacheVariables": {
+                "ANDROID_ABI": "armeabi-v7a"
+            }
+        },
+        {
+            "name": "android-x86_64",
+            "displayName": "Android x86_64 (emulator)",
+            "inherits": "android-base",
+            "binaryDir": "${sourceDir}/build-x86_64",
+            "cacheVariables": {
+                "ANDROID_ABI": "x86_64"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "android-arm64",
+            "configurePreset": "android-arm64"
+        },
+        {
+            "name": "android-armv7",
+            "configurePreset": "android-armv7"
+        },
+        {
+            "name": "android-x86_64",
+            "configurePreset": "android-x86_64"
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "NDK: Configure (arm64-v8a)",
+            "type": "shell",
+            "command": "cmake",
+            "args": ["--preset", "android-arm64"],
+            "problemMatcher": []
+        },
+        {
+            "label": "NDK: Build",
+            "type": "shell",
+            "command": "cmake",
+            "args": ["--build", "--preset", "android-arm64"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "NDK: Push lib to device (adb)",
+            "type": "shell",
+            "command": "bash",
+            "args": ["${workspaceFolder}/run-on-device.sh"],
+            "dependsOn": "NDK: Build",
+            "problemMatcher": []
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "version": 4,
+    "configurations": [
+        {
+            "name": "Android NDK (arm64)",
+            "configurationProvider": "ms-vscode.cmake-tools",
+            "compilerPath": "/Users/zyhfunny/Library/Android/sdk/ndk/30.0.16248370/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++",
+            "compilerArgs": [
+                "--target=aarch64-linux-android24",
+                "-stdlib=libc++"
+            ],
+            "intelliSenseMode": "clang-arm64",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "includePath": [
+                "${workspaceFolder}/include",
+                "${workspaceFolder}/src"
+            ],
+            "defines": [
+                "__ANDROID__",
+                "__ANDROID_API__=24"
+            ]
+        }
+    ]
+}
